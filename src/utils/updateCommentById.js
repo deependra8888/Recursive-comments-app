@@ -20,6 +20,7 @@ export default function updateCommentById(comments, id, newComment) {
                     return comments
                 }else{
                     foundComment.replies = [newComment]
+                   
                     return comments
                 }
             }
