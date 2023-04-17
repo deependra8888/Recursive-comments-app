@@ -98,15 +98,19 @@ const Card = ({ editCommentAt, seteditCommentAt, setData, data, currentUser, com
         </div>
         {!editCommentAt && <p>{comment.content}</p>}
         {editCommentAt === comment.id && <div>
+          <div className='bg-white py-4 px-4 rounded-xl'>
+          <div className='flex  flex-col gap-4 bg-white rounded-md'>
           <textarea value={userComment} onChange={(e) => setuserComment(e.target.value)} placeholder='Add a show CommentAt' className="resize-none w-6/3 px-3 pb-14 pt-2 my-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
-          <button onClick={() => {
+          </div>
+          </div>
+          <button className='bg-blue-600 text-white px-3 py-1 rounded-md' onClick={() => {
               let allComments = JSON.parse(JSON.stringify(data.comments))
               console.log(userComment);
               editCommentById(comment.id, userComment, allComments)
               
               setData({ ...data, comments: allComments})
               seteditCommentAt(null)
-          }}>update</button>
+          }}>Update</button>
         </div>}
         <div className='flex justify-between'>
           <div className='flex gap-3 bg-blue-100 py-1 px-2 rounded-md'>
@@ -203,7 +207,7 @@ const Card = ({ editCommentAt, seteditCommentAt, setData, data, currentUser, com
 }
 
 
-const ReplyList = ({editCommentAt, seteditCommentAt, setData, data, currentUser, replies, setshowCommentAt, showCommentAt }) => {
+const ReplyList = ({editCommentAt, seteditCommentAt, setData, data, replies, setshowCommentAt, showCommentAt }) => {
 
   return (
     <div className='border-l-2 ps-4'>

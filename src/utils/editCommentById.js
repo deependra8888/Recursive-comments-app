@@ -1,7 +1,7 @@
 export default function editCommentById (id, content, comments, editscore) {
     console.log(content);
     for(let i = 0; i < comments.length; i++){
-        if(comments[i].id === id){
+        if(comments[i].id === id && comments[i].user.username === 'juliusomo'){
             if(editscore === undefined){
                 comments[i].content = content
                 return 
